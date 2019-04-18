@@ -12,6 +12,10 @@ import Shopping from './pages/Home/Shopping.vue'
 //我的
 import Mine from './pages/Home/Mine.vue'
 
+
+// 搜索页
+import Search from './pages/Search.vue'
+
 // 定义路由
 const routes = [
     {
@@ -27,7 +31,7 @@ const routes = [
         path: '/mine', component: Mine, name: 'mine',
     },
     // { path: '/detail/:id', component: Detail, name: 'detail' },
-    // { path: '/search', component: Search, name: 'search' },
+    { path: '/search', component: Search, name: 'search' },
     // 设置默认重定向
     { path: '/', redirect: '/pagehome' }
 ]

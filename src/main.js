@@ -6,6 +6,10 @@ import axios from 'axios'
 import 'weui';
 // 引入路由对象
 import router from './router.js'
+//vant样式
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
 
 //Vue继承axios的方法
 Vue.prototype.$axios = axios;

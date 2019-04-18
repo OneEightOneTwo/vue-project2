@@ -1,11 +1,12 @@
 <template>
-  <header>MEIZU</header>
+  <header>
+    <div>MEIZU</div>
+  </header>
 </template>
 <script>
 export default {};
 </script>
-<style scoped>
-</style>
+
 
 
 
