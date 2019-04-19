@@ -3,7 +3,7 @@
     <div class="main">
       <div class="header">
         <div class="left">
-          <router-link to="/home">
+          <router-link to="/pagehome">
             <i class="iconfont icon-iconfanhui"></i>
           </router-link>
         </div>
@@ -45,12 +45,12 @@
         </div>
       </div>
     </div>
+  <div class="fot"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Login",
   data() {
     return {
       visibility: false,
@@ -59,23 +59,24 @@ export default {
   },
   methods: {
     add: function() {
-      var user = this.$refs.name.value;
-      var pwd = this.$refs.pwd.value;
-      console.log(user, pwd);
-      if (user == "") {
-        this.$alert("用户名不能为空");
-      } else if (pwd == "") {
-        this.$alert("密码不能为空");
-      } else {
-        var url = `http://vueshop.glbuys.com/api/home/user/pwdlogin?token=1ec949a15fb709370f&cellphone=${user}&passwrod=${pwd}`;
-        this.$http.post(url).then(res => {
-          console.log(res);
-          if (res.data.status == "0") {
-            this.$toast("登陆成功");
-            location.href = "";
-          }
-        });
-      }
+      let user = this.$refs.name.value;
+      let pwd = this.$refs.pwd.value;
+      // console.log(user, pwd);
+      this.$router.push({path:'/pagehome'})
+      // if (user == "") {
+      //   this.$alert("用户名不能为空");
+      // } else if (pwd == "") {
+      //   this.$alert("密码不能为空");
+      // } else {
+      //   let url = `http://vueshop.glbuys.com/api/home/user/pwdlogin?token=1ec949a15fb709370f&cellphone=${user}&passwrod=${pwd}`;
+      //   this.$http.post(url).then(res => {
+      //     // console.log(res);
+      //     if (res.data.status == "0") {
+      //       this.$toast("登陆成功");
+      //       // location.href = "";
+      //     }
+      //   });
+      // }
     }
   }
 };
@@ -111,12 +112,15 @@ h1 {
   }
 }
 
-* {
-  background: url(../assets/4.jpg);
+*{
+  background: url(../assets/login.jpeg);
+  background-size: cover;
 }
 .warp {
   width: 100%;
-  height: 42rem;
+  height: 45rem;
+  z-index: 9999;
+  position: fixed;
 }
 .header {
   width: 100%;

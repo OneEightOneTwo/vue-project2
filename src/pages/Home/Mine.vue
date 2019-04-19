@@ -99,11 +99,17 @@
       </a>
     </div>
     <!-- 退出登录 -->
-    <a href="javascript:;" id="j-exit" class="exit">退出登录</a>
+    <a @click="back" href="javascript:;" id="j-exit" class="exit">退出登录</a>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    back() {
+      this.$router.push({path:'/Check'})
+    }
+  },
+};
 </script>
 <style scoped>
 .member-index {

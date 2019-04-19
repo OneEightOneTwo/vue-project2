@@ -3,7 +3,7 @@
     <div class="main">
       <div class="header">
         <div class="left">
-          <router-link to="/login">
+          <router-link to="./Home/pagehome">
             <i class="iconfont icon-iconfanhui"></i>
           </router-link>
         </div>
@@ -33,7 +33,7 @@
             </div>
           </div>
 
-          <button type="button" class="btn btn-danger btn-lg btn-block" @click="register">Check</button>
+          <button type="button" class="btn btn-danger btn-lg btn-block" @click="go">Check</button>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: "Register",
+  // name: "Register",
   data() {
     return {
       //图片验证码
@@ -65,6 +65,9 @@ export default {
       this.imgSrc =
         "http://vueshop.glbuys.com/api/vcode/chkcode?token=1ec949a15fb709370f&nowtime=1312423435" +
         sj;
+    },
+    go() {
+      this.$router.push({path:'/pagehome'})
     }
       }
     };
@@ -74,7 +77,11 @@ export default {
 <style scoped>
 .warp {
   width: 100%;
-  height: 42rem;
+  height: 45rem;
+  position: fixed;
+  z-index: 9999;
+  background: url(../assets/check.jpeg);
+  background-size: cover;
 }
 .h1,
 h1 {
@@ -89,7 +96,7 @@ h2 {
   color: white;
 }
 * {
-  background: url(../assets/1.jpg);
+
 }
 .btn-block {
   display: block;

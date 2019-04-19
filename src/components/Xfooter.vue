@@ -11,7 +11,7 @@
       }"
     >
       <span style="display: inline-block;position: relative;">
-        <img :src="img" alt class="weui-tabbar__icon">
+        <img :src="t.src" alt class="weui-tabbar__icon">
         <span
           v-if="t.badge>0"
           class="weui-badge"
@@ -29,11 +29,11 @@
   </div>
 </template>
 <script>
-import img from "../assets/icon_tabbar.png";
+// import img from "../assets/icon_tabbar.png";
 export default {
   data() {
     return {
-      img,
+      // img,
       tabbar: [
         // badge打数字
         {
@@ -41,28 +41,32 @@ export default {
           badge: 0,
           isBadge: false,
           name: "pagehome",
-          path: "/pagehome"
+          path: "/pagehome",
+          src:require('../assets/pagehome.png')
         },
         {
           title: "分类",
           badge: 0,
           isBadge: false,
           name: "classify",
-          path: "/classify"
+          path: "/classify",
+          src:require('../assets/classify.png')
         },
         {
           title: "购物车",
           badge: 0,
           isBadge: false,
           name: "shopping",
-          path: "/shopping"
+          path: "/shopping",
+          src:require('../assets/shop.png')
         },
         {
           title: "我的",
           badge: 0,
           isBadge: false,
           name: "mine",
-          path: "/mine"
+          path: "/mine",
+          src:require('../assets/mini.png')
         }
       ],
       // 默认的下标值

@@ -12,6 +12,10 @@ import Shopping from './pages/Home/Shopping.vue'
 //我的
 import Mine from './pages/Home/Mine.vue'
 
+//登录页
+import Login from './pages/Login.vue'
+//注册页
+import Check from './pages/Check.vue'
 
 // 搜索页
 import Search from './pages/Search.vue'
@@ -19,21 +23,46 @@ import Search from './pages/Search.vue'
 // 定义路由
 const routes = [
     {
-        path: '/classify', component: Classify, name: 'classify',
+        path: '/classify',
+        component: Classify,
+        name: 'classify',
     },
     {
-        path: '/pagehome', component: Pagehome, name: 'pagehome',
+        path: '/pagehome',
+        component: Pagehome,
+        name: 'pagehome',
     },
     {
-        path: '/shopping', component: Shopping, name: 'shopping',
+        path: '/shopping',
+        component: Shopping,
+        name: 'shopping',
     },
     {
-        path: '/mine', component: Mine, name: 'mine',
+        path: '/mine',
+        component: Mine,
+        name: 'mine',
+    },
+    {
+        path: '/Login',
+        component: Login,
+        name: 'Login',
+    },
+    {
+        path: '/Check',
+        component: Check,
+        name: 'Check',
     },
     // { path: '/detail/:id', component: Detail, name: 'detail' },
-    { path: '/search', component: Search, name: 'search' },
+    {
+        path: '/search',
+        component: Search,
+        name: 'search'
+    },
     // 设置默认重定向
-    { path: '/', redirect: '/pagehome' }
+    {
+        path: '/',
+        redirect: '/Login'
+    }
 ]
 // 实例化路由
 const router = new VueRouter({
