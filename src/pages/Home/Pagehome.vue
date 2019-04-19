@@ -5,8 +5,12 @@
         <div class="left">MEIZU</div>
         <div class="main">
           <form action="/">
-          <van-icon name="search" style="position:absolute;top:0.3rem;margin-left:0.2rem" size="20px"/> 
-           <input @click="got" type="text" placeholder="魅族15">
+            <van-icon
+              name="search"
+              style="position:absolute;top:0.3rem;margin-left:0.2rem"
+              size="20px"
+            />
+            <input @click="got" type="text" placeholder="魅族15">
           </form>
         </div>
         <div class="right">
@@ -40,10 +44,10 @@
           <img src="../../assets/m.png">魅族官方直供
         </span>
         <span class="icon" data-mtype="mgw_index_yl_service" data-bh="click_mgw_index_yl_service">
-          <img src="../../assets/m.png">满80免运费
+          <img src="../../assets/f.png">满80免运费
         </span>
         <span class="icon" data-mtype="mgw_index_yl_service" data-bh="click_mgw_index_yl_service">
-          <img src="../../assets/m.png">7 天无理由退货
+          <img src="../../assets/q.png">7 天无理由退货
         </span>
       </div>
       <div class="hot-site">
@@ -417,9 +421,10 @@
       </div>
     </div>
     <!-- 返回顶部 -->
-    <div @click="back" class="index-back-center" id="index-back-center">
+    <div v-show="bool" @click="back" class="index-back-center" id="index-back-center back">
       <div class="back-to-top" id="toTop">
-        <span>返回顶部</span>
+        <!-- <span>返回顶部</span> -->
+        <van-icon name="arrow-up" size="2rem" />
       </div>
     </div>
     <!-- 正品 -->
@@ -488,6 +493,7 @@
 export default {
   data() {
     return {
+      bool: false,
       tabbar: [
         {
           title: "魅族声学",
@@ -737,21 +743,28 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener("scroll", this.scrollToTop);
+    window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
+    handleScroll() {
+      let scrollTop =
+      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if(scrollTop >= 500) {
+        this.bool = true;
+      }else{
+         this.bool = false;
+      }
+    },
     back() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-      // let that = this;
-      // let timer = setInterval(() => {
-      //   let ispeed = Math.floor(-that.scrollTop / 5);
-      //   document.documentElement.scrollTop = document.body.scrollTop =
-      //     that.scrollTop + ispeed;
-      //   if (that.scrollTop === 0) {
-      //     clearInterval(timer);
-      //   }
-      // }, 40);
+      let scrollTop = window.scrollY;
+      let timer = setInterval(() => {
+        if (scrollTop >= 0) {
+          scrollTop -= 100;
+          window.scrollTo(0, scrollTop);
+        } else {
+          clearInterval(timer);
+        }
+      }, 30);
     },
     got() {
       this.$route.path === "/search"
@@ -1033,17 +1046,16 @@ input {
 }
 /* 返回顶部 */
 .back-to-top {
-  display: flex;
-  /* position: fixed; */
-  bottom: 100px;
-  justify-content: center;
-  align-items: center;
-  height: 4.333333rem;
-  font-size: 1rem;
+  position: fixed;
+  bottom: 6.666667rem;
+  height: 2rem;
+  line-height: 2rem;
+  /* font-size: 2rem; */
   background: #f3f3f3;
+  right: .266667rem;
 }
 .back-to-top span {
-  display: inline-block;
+  /* display: inline-block; */
   color: #999;
 }
 /* 正品 */
