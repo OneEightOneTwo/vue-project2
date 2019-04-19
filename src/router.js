@@ -12,6 +12,7 @@ import Shopping from './pages/Home/Shopping.vue'
 //我的
 import Mine from './pages/Home/Mine.vue'
 
+
 // 定义路由
 const routes = [
     {
